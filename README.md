@@ -1,6 +1,6 @@
 ## Store 360
 
-### How to install and run and build next js app
+### How to run
 
 1. Clone the repository: `git clone https://github.com/hiroyukikuroda/store-360.git`
 2. Go to the repository: `cd store-360`
