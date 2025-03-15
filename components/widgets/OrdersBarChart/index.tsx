@@ -39,7 +39,6 @@ export function OrdersBarChart({ config, dateRange }: OrdersBarChartProps) {
           config.limit || 10
         );
         setData(processedData);
-        console.log(processedData);
       } catch (error) {
         console.error("Error loading bar chart data:", error);
       } finally {
