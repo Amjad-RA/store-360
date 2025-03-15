@@ -35,11 +35,11 @@ export function PopularProductsList({ config, dateRange }: PopularProductsListPr
   }, [dateRange, config])
 
   if (loading) {
-    return <div className="h-[200px] flex items-center justify-center">Loading...</div>
+    return <div className="h-[300px] flex items-center justify-center">Loading...</div>
   }
 
   return (
-    <Card className="min-h-[200px] overflow-auto">
+    <Card className="h-[300px] overflow-auto">
       <Table>
         <TableHeader>
           <TableRow>

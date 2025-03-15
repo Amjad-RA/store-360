@@ -4,7 +4,6 @@ import {
   SidebarContent,
   SidebarGroup,
   SidebarFooter,
-  SidebarGroupLabel,
   SidebarGroupContent,
   SidebarMenu,
   SidebarMenuButton,
@@ -37,7 +36,6 @@ export default function SideBar() {
       <SidebarHeader />
       <SidebarContent>
         <SidebarGroup>
-          <SidebarGroupLabel>Application</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
               {items.map((item) => (

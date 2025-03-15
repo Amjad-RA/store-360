@@ -12,7 +12,6 @@ export async function exportDashboardAsPdf(elementId: string) {
       scale: 2,
       useCORS: true,
       logging: false,
-      backgroundColor: "hsl(var(--background))", // Use theme background color
       onclone: (clonedDoc) => {
         // Fix any styling issues in the cloned document before rendering
         const tables = clonedDoc.querySelectorAll(".overflow-auto")
@@ -51,8 +50,7 @@ export async function exportDashboardAsPng(elementId: string) {
     const canvas = await html2canvas(element, {
       scale: 2,
       useCORS: true,
-      logging: false,
-      backgroundColor: "hsl(var(--background))", // Use theme background color
+      logging: false, // Use theme background color
       onclone: (clonedDoc) => {
         // Fix any styling issues in the cloned document before rendering
         const tables = clonedDoc.querySelectorAll(".overflow-auto")
@@ -84,7 +82,6 @@ export async function exportWidgetAsPdf(elementId: string) {
       scale: 2,
       useCORS: true,
       logging: false,
-      backgroundColor: "hsl(var(--background))", // Use theme background color
       onclone: (clonedDoc) => {
         // Fix any styling issues in the cloned document before rendering
         const tables = clonedDoc.querySelectorAll(".overflow-auto")
@@ -124,7 +121,6 @@ export async function exportWidgetAsPng(elementId: string) {
       scale: 2,
       useCORS: true,
       logging: false,
-      backgroundColor: "hsl(var(--background))", // Use theme background color
       onclone: (clonedDoc) => {
         // Fix any styling issues in the cloned document before rendering
         const tables = clonedDoc.querySelectorAll(".overflow-auto")

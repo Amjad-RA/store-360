@@ -51,15 +51,15 @@ export function OrdersBarChart({ config, dateRange }: OrdersBarChartProps) {
 
   if (loading) {
     return (
-      <div className="h-[200px] flex items-center justify-center">
+      <div className="h-[300px] flex items-center justify-center">
         Loading...
       </div>
     );
   }
 
   return (
-    <ChartContainer config={chartConfig} className="min-h-[200px] w-full">
-      <BarChart className="h-[200px]" accessibilityLayer data={data}>
+    <ChartContainer config={chartConfig} className="h-[300px] w-full">
+      <BarChart className="h-[300px]" accessibilityLayer data={data}>
         <XAxis
           dataKey="name"
           tickLine={false}

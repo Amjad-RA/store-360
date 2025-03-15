@@ -47,8 +47,8 @@ export function Widget({ widget, dateRange, onRemove, onRefresh }: WidgetProps) 
   const renderWidgetContent = () => {
     if (loading) {
       return (
-        <div className="w-full h-[200px] flex items-center justify-center">
-          <Skeleton className="h-[200px] w-full" />
+        <div className="w-full h-[300px] flex items-center justify-center">
+          <Skeleton className="h-[300px] w-full" />
         </div>
       )
     }

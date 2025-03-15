@@ -101,14 +101,14 @@ export function WidgetSelector({ open, onClose, onAddWidget }: WidgetSelectorPro
           <DialogDescription>Select a widget to add to your dashboard.</DialogDescription>
         </DialogHeader>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 py-4 max-h-[60vh] overflow-y-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 p-2 max-h-[60vh] overflow-y-auto">
           {AVAILABLE_WIDGETS.map((widget) => (
             <Card
               key={widget.type}
-              className={`cursor-pointer transition-all ${selectedType === widget.type ? "ring-2 ring-primary" : ""}`}
+              className={`cursor-pointer transition-all py-4 ${selectedType === widget.type ? "ring-2 ring-primary" : ""}`}
               onClick={() => setSelectedType(widget.type)}
             >
-              <CardContent className="flex items-center gap-4 p-4">
+              <CardContent className="flex items-center gap-4">
                 <div className="bg-primary/10 p-2 rounded-full">
                   <widget.icon className="h-5 w-5 text-primary" />
                 </div>

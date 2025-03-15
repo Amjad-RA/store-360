@@ -34,7 +34,7 @@ const SAMPLE_DATA = [
     Order_Status: "Delivered",
     Delivery_Person: "Sarah Johnson",
     Delivery_Status: "Delivered",
-    Timestamp: "2023-03-01T10:30:00Z",
+    Timestamp: "2025-03-01T10:30:00Z",
   },
   {
     Order_ID: 1002,
@@ -65,7 +65,7 @@ const SAMPLE_DATA = [
     Order_Status: "In Transit",
     Delivery_Person: "David Lee",
     Delivery_Status: "In Transit",
-    Timestamp: "2023-03-02T12:15:00Z",
+    Timestamp: "2025-03-02T12:15:00Z",
   },
   {
     Order_ID: 1003,
@@ -96,7 +96,7 @@ const SAMPLE_DATA = [
     Order_Status: "Pending",
     Delivery_Person: "",
     Delivery_Status: "",
-    Timestamp: "2023-03-03T15:45:00Z",
+    Timestamp: "2025-03-03T15:45:00Z",
   },
   {
     Order_ID: 1004,
@@ -127,7 +127,7 @@ const SAMPLE_DATA = [
     Order_Status: "Delivered",
     Delivery_Person: "Emily Parker",
     Delivery_Status: "Delivered",
-    Timestamp: "2023-03-04T18:30:00Z",
+    Timestamp: "2025-03-04T18:30:00Z",
   },
   {
     Order_ID: 1005,
@@ -158,7 +158,7 @@ const SAMPLE_DATA = [
     Order_Status: "In Transit",
     Delivery_Person: "James Smith",
     Delivery_Status: "In Transit",
-    Timestamp: "2023-03-05T09:15:00Z",
+    Timestamp: "2025-03-05T09:15:00Z",
   },
   {
     Order_ID: 1006,
@@ -189,7 +189,7 @@ const SAMPLE_DATA = [
     Order_Status: "Delivered",
     Delivery_Person: "Sarah Johnson",
     Delivery_Status: "Delivered",
-    Timestamp: "2023-03-06T13:45:00Z",
+    Timestamp: "2025-03-06T13:45:00Z",
   },
   {
     Order_ID: 1007,
@@ -220,7 +220,7 @@ const SAMPLE_DATA = [
     Order_Status: "Delivered",
     Delivery_Person: "David Lee",
     Delivery_Status: "Delivered",
-    Timestamp: "2023-03-07T16:30:00Z",
+    Timestamp: "2025-03-07T16:30:00Z",
   },
   {
     Order_ID: 1008,
@@ -251,7 +251,7 @@ const SAMPLE_DATA = [
     Order_Status: "In Transit",
     Delivery_Person: "Emily Parker",
     Delivery_Status: "In Transit",
-    Timestamp: "2023-03-08T11:15:00Z",
+    Timestamp: "2025-03-08T11:15:00Z",
   },
   {
     Order_ID: 1009,
@@ -282,7 +282,7 @@ const SAMPLE_DATA = [
     Order_Status: "Pending",
     Delivery_Person: "",
     Delivery_Status: "",
-    Timestamp: "2023-03-09T14:45:00Z",
+    Timestamp: "2025-03-09T14:45:00Z",
   },
   {
     Order_ID: 1010,
@@ -313,7 +313,7 @@ const SAMPLE_DATA = [
     Order_Status: "Delivered",
     Delivery_Person: "James Smith",
     Delivery_Status: "Delivered",
-    Timestamp: "2023-03-10T19:30:00Z",
+    Timestamp: "2025-03-10T19:30:00Z",
   },
 ]
 
@@ -324,14 +324,15 @@ export async function fetchOrdersData(dateRange: { from: Date; to: Date }) {
   // Filter by date range if provided
   if (dateRange.from || dateRange.to) {
     return SAMPLE_DATA.filter((order) => {
-      const orderDate = new Date(order.Timestamp)
-
-      if (dateRange.from && dateRange.to) {
-        return orderDate >= dateRange.from && orderDate <= dateRange.to
-      } else if (dateRange.from) {
-        return orderDate >= dateRange.from
-      } else if (dateRange.to) {
-        return orderDate <= dateRange.to
+      const orderDate = new Date(order.Timestamp);
+      const fromDate = dateRange.from ? new Date(dateRange.from) : null;
+      const toDate = dateRange.to ? new Date(dateRange.to) : null;
+      if (fromDate && toDate) {
+        return orderDate >= fromDate && orderDate <= toDate
+      } else if (fromDate) {
+        return orderDate >= fromDate
+      } else if (toDate) {
+        return orderDate <= toDate
       }
 
       return true
