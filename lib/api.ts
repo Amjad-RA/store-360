@@ -322,7 +322,7 @@ export async function fetchOrdersData(dateRange: { from: Date; to: Date }) {
   await new Promise((resolve) => setTimeout(resolve, 500))
 
   // Filter by date range if provided
-  if (dateRange.from || dateRange.to) {
+  if (dateRange?.from || dateRange?.to) {
     return SAMPLE_DATA.filter((order) => {
       const orderDate = new Date(order.Timestamp);
       const fromDate = dateRange.from ? new Date(dateRange.from) : null;

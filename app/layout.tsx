@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import SideBar from "../components/widgets/SideBar";
 import { SidebarProvider } from "@/components/ui/sidebar";
+import { DateRangeProvider } from "@/contexts/date-range-context";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,7 +32,9 @@ export default function RootLayout({
       >
         <SidebarProvider>
           <SideBar />
-          <main className="flex-1 w-full">{children}</main>
+          <DateRangeProvider>
+            <main className="flex-1 w-full">{children}</main>
+          </DateRangeProvider>
         </SidebarProvider>
       </body>
     </html>

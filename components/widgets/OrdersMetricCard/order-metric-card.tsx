@@ -5,14 +5,13 @@ import { useState, useEffect } from "react";
 import { fetchOrdersData } from "@/lib/api";
 import { calculateOrderMetrics } from "@/lib/data-utils";
 import { Card } from "@/components/ui/card";
-import { useDateRange } from "@/hooks/use-date-range";
 
 interface OrdersMetricCardProps {
   config: any;
   dateRange: any;
 }
 
-export function OrdersMetricCard({ config }: OrdersMetricCardProps) {
+export function OrdersMetricCard({ config, dateRange }: OrdersMetricCardProps) {
   const [metrics, setMetrics] = useState<any>({
     totalOrders: 0,
     totalRevenue: 0,
@@ -20,8 +19,6 @@ export function OrdersMetricCard({ config }: OrdersMetricCardProps) {
     itemsSold: 0,
   });
   const [loading, setLoading] = useState(true);
-
-  const { dateRange } = useDateRange();
 
   useEffect(() => {
     const loadData = async () => {
@@ -50,7 +47,7 @@ export function OrdersMetricCard({ config }: OrdersMetricCardProps) {
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-2 h-[300px]">
-      <Card className="p-4">
+      <Card className="p-2 md:p-4">
       <div className="flex items-center justify-between w-full h-full">
           <div className="flex flex-col w-full h-full">
             <div className="text-sm font-medium leading-none text-muted-foreground">Total Orders</div>
@@ -61,7 +58,7 @@ export function OrdersMetricCard({ config }: OrdersMetricCardProps) {
           </div>
         </div>
       </Card>
-      <Card className="p-4">
+      <Card className="p-2 md:p-4">
       <div className="flex items-center justify-between w-full h-full">
           <div className="flex flex-col w-full h-full">
             <div className="text-sm font-medium leading-none text-muted-foreground">Total Revenue</div>
@@ -73,7 +70,7 @@ export function OrdersMetricCard({ config }: OrdersMetricCardProps) {
           </div>
         </div>
       </Card>
-      <Card className="p-4">
+      <Card className="p-2 md:p-4">
       <div className="flex items-center justify-between w-full h-full">
           <div className="flex flex-col w-full h-full">
             <div className="text-sm font-medium leading-none text-muted-foreground">Avg. Order Value</div>
@@ -85,7 +82,7 @@ export function OrdersMetricCard({ config }: OrdersMetricCardProps) {
           </div>
         </div>
       </Card>
-      <Card className="p-4">
+      <Card className="p-2 md:p-4">
         <div className="flex items-center justify-between w-full h-full">
           <div className="flex flex-col w-full h-full">
             <div className="text-sm font-medium leading-none text-muted-foreground">

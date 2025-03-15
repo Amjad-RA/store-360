@@ -57,6 +57,14 @@ export function OrdersBarChart({ config, dateRange }: OrdersBarChartProps) {
     );
   }
 
+  if (data.length === 0) {
+    return (
+      <div className="h-[300px] flex items-center justify-center text-muted-foreground">
+        No data available
+      </div>
+    );
+  }
+
   return (
     <ChartContainer config={chartConfig} className="h-[300px] w-full">
       <BarChart className="h-[300px]" accessibilityLayer data={data}>

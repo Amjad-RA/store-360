@@ -14,7 +14,7 @@ import { DatePickerWithRange } from "./ui/dateRangePicker";
 import { DragDropContext, Droppable } from "@hello-pangea/dnd";
 import { WidgetGrid } from "./widget-grid";
 import { useWidgets } from "@/hooks/use-widgets";
-import { useDateRange } from "@/hooks/use-date-range";
+import { useDateRange } from "@/contexts/date-range-context";
 import { WidgetSelector } from "./widget-selector";
 import { useState } from "react";
 import { exportDashboardAsPdf, exportDashboardAsPng } from "@/lib/export-utils";
@@ -33,7 +33,6 @@ export default function Dashboard() {
     reorderWidgets,
     refreshWidget,
   } = useWidgets();
-
   const { dateRange } = useDateRange();
 
   return (

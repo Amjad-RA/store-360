@@ -38,6 +38,12 @@ export function PopularProductsList({ config, dateRange }: PopularProductsListPr
     return <div className="h-[300px] flex items-center justify-center">Loading...</div>
   }
 
+  if (data.length === 0) {
+    return (
+      <div className="h-[300px] flex items-center justify-center text-muted-foreground">No data available</div>
+    )
+  }
+
   return (
     <Card className="h-[300px] overflow-auto">
       <Table>

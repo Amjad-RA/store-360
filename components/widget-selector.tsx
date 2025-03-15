@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/dialog"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { BarChart3, LineChart, Table, PieChart, BarChart, Activity, Users, ShoppingBag, MapPin } from "lucide-react"
+import { BarChart3, LineChart, Table, PieChart, Activity, Users, ShoppingBag } from "lucide-react"
 
 interface WidgetSelectorProps {
   open: boolean
@@ -19,7 +19,7 @@ interface WidgetSelectorProps {
   onAddWidget: (widgetType: string) => void
 }
 
-const AVAILABLE_WIDGETS = [
+export const AVAILABLE_WIDGETS = [
   {
     type: "orders-bar-chart",
     title: "Orders by Day",
@@ -51,12 +51,6 @@ const AVAILABLE_WIDGETS = [
     description: "Key performance metrics",
   },
   {
-    type: "orders-status-card",
-    title: "Order Status",
-    icon: BarChart,
-    description: "Order status breakdown",
-  },
-  {
     type: "employee-delivery-count",
     title: "Employee Delivery Count",
     icon: Users,
@@ -73,12 +67,6 @@ const AVAILABLE_WIDGETS = [
     title: "Popular Products",
     icon: ShoppingBag,
     description: "Most ordered products ranking",
-  },
-  {
-    type: "order-area-map",
-    title: "Order Locations",
-    icon: MapPin,
-    description: "Map showing order distribution by area",
   },
 ]
 

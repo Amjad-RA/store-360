@@ -12,15 +12,12 @@ import { exportWidgetAsPdf, exportWidgetAsPng } from "@/lib/export-utils"
 import { WidgetConfig } from "@/components/widget-config"
 import { OrdersBarChart } from "@/components/widgets/OrdersBarChart"
 import { OrdersMetricCard } from "./widgets/OrdersMetricCard/order-metric-card"
-// import { OrdersLineChart } from "@/components/widgets/orders-line-chart"
-// import { OrdersTable } from "@/components/widgets/orders-table"
-// import { OrdersDonutChart } from "@/components/widgets/orders-donut-chart"
-// import { OrdersMetricCard } from "@/components/widgets/orders-metric-card"
-// import { OrdersStatusCard } from "@/components/widgets/orders-status-card"
-// import { EmployeeDeliveryCount } from "@/components/widgets/employee-delivery-count"
-// import { PotentialCustomersChart } from "@/components/widgets/potential-customers-chart"
+import { OrdersLineChart } from "@/components/widgets/OrdersLineChart"
+import { OrdersTable } from "@/components/widgets/OrderTable"
+import { EmployeeDeliveryCount } from "@/components/widgets/EmployeeDeliveryCount"
+import { PotentialCustomersChart } from "@/components/widgets/PotentialCustomersChart"
 import { PopularProductsList } from "@/components/widgets/PopularProductList"
-// import { OrderAreaMap } from "@/components/widgets/order-area-map"
+import { OrdersDonutChart } from "./widgets/OrdersDonutChart"
 
 interface WidgetProps {
   widget: WidgetType
@@ -56,26 +53,22 @@ export function Widget({ widget, dateRange, onRemove, onRefresh }: WidgetProps) 
     switch (widget.type) {
       case "orders-bar-chart":
         return <OrdersBarChart config={widget.config} dateRange={dateRange} />
-      // case "orders-line-chart":
-      //   return <OrdersLineChart config={widget.config} dateRange={dateRange} />
-      // case "orders-table":
-      //   return <OrdersTable config={widget.config} dateRange={dateRange} />
-      // case "orders-donut-chart":
-      //   return <OrdersDonutChart config={widget.config} dateRange={dateRange} />
+      case "orders-line-chart":
+        return <OrdersLineChart config={widget.config} dateRange={dateRange} />
+      case "orders-table":
+        return <OrdersTable config={widget.config} dateRange={dateRange} />
+      case "orders-donut-chart":
+        return <OrdersDonutChart config={widget.config} dateRange={dateRange} />
       case "orders-metric-card":
         return <OrdersMetricCard config={widget.config} dateRange={dateRange} />
-      // case "orders-status-card":
-      //   return <OrdersStatusCard config={widget.config} dateRange={dateRange} />
-      // case "employee-delivery-count":
-      //   return <EmployeeDeliveryCount config={widget.config} dateRange={dateRange} />
-      // case "potential-customers-chart":
-      //   return <PotentialCustomersChart config={widget.config} dateRange={dateRange} />
+      case "employee-delivery-count":
+        return <EmployeeDeliveryCount config={widget.config} dateRange={dateRange} />
+      case "potential-customers-chart":
+        return <PotentialCustomersChart config={widget.config} dateRange={dateRange} />
       case "popular-products-list":
         return <PopularProductsList config={widget.config} dateRange={dateRange} />
-      // case "order-area-map":
-      //   return <OrderAreaMap config={widget.config} dateRange={dateRange} />
       default:
-        return <div>Unknown widget type</div>
+        return <div className="h-[300px] flex items-center justify-center">Unknown widget type</div>
     }
   }
 
@@ -88,13 +81,13 @@ export function Widget({ widget, dateRange, onRemove, onRefresh }: WidgetProps) 
             <CardTitle className="text-md">{widget.title}</CardTitle>
           </div>
           <div className="flex items-center gap-1">
-            <Button variant="ghost" size="icon" onClick={handleRefresh}>
+            <Button variant="ghost" size="icon" onClick={handleRefresh} data-html2canvas-ignore="true">
               <RefreshCw className="h-4 w-4" />
             </Button>
-            <Button variant="ghost" size="icon" onClick={() => setShowConfig(true)}>
+            <Button variant="ghost" size="icon" onClick={() => setShowConfig(true)} data-html2canvas-ignore="true">
               <Settings className="h-4 w-4" />
             </Button>
-            <DropdownMenu>
+            <DropdownMenu data-html2canvas-ignore="true">
               <DropdownMenuTrigger asChild>
                 <Button variant="ghost" size="icon">
                   <Download className="h-4 w-4" />
