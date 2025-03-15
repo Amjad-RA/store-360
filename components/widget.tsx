@@ -11,6 +11,7 @@ import type { WidgetType } from "@/types/widget"
 import { exportWidgetAsPdf, exportWidgetAsPng } from "@/lib/export-utils"
 import { WidgetConfig } from "@/components/widget-config"
 import { OrdersBarChart } from "@/components/widgets/OrdersBarChart"
+import { OrdersMetricCard } from "./widgets/OrdersMetricCard/order-metric-card"
 // import { OrdersLineChart } from "@/components/widgets/orders-line-chart"
 // import { OrdersTable } from "@/components/widgets/orders-table"
 // import { OrdersDonutChart } from "@/components/widgets/orders-donut-chart"
@@ -18,7 +19,7 @@ import { OrdersBarChart } from "@/components/widgets/OrdersBarChart"
 // import { OrdersStatusCard } from "@/components/widgets/orders-status-card"
 // import { EmployeeDeliveryCount } from "@/components/widgets/employee-delivery-count"
 // import { PotentialCustomersChart } from "@/components/widgets/potential-customers-chart"
-// import { PopularProductsList } from "@/components/widgets/popular-products-list"
+import { PopularProductsList } from "@/components/widgets/PopularProductList"
 // import { OrderAreaMap } from "@/components/widgets/order-area-map"
 
 interface WidgetProps {
@@ -61,16 +62,16 @@ export function Widget({ widget, dateRange, onRemove, onRefresh }: WidgetProps) 
       //   return <OrdersTable config={widget.config} dateRange={dateRange} />
       // case "orders-donut-chart":
       //   return <OrdersDonutChart config={widget.config} dateRange={dateRange} />
-      // case "orders-metric-card":
-      //   return <OrdersMetricCard config={widget.config} dateRange={dateRange} />
+      case "orders-metric-card":
+        return <OrdersMetricCard config={widget.config} dateRange={dateRange} />
       // case "orders-status-card":
       //   return <OrdersStatusCard config={widget.config} dateRange={dateRange} />
       // case "employee-delivery-count":
       //   return <EmployeeDeliveryCount config={widget.config} dateRange={dateRange} />
       // case "potential-customers-chart":
       //   return <PotentialCustomersChart config={widget.config} dateRange={dateRange} />
-      // case "popular-products-list":
-      //   return <PopularProductsList config={widget.config} dateRange={dateRange} />
+      case "popular-products-list":
+        return <PopularProductsList config={widget.config} dateRange={dateRange} />
       // case "order-area-map":
       //   return <OrderAreaMap config={widget.config} dateRange={dateRange} />
       default:

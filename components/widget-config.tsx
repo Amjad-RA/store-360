@@ -48,15 +48,6 @@ export function WidgetConfig({ widget, open, onClose }: WidgetConfigProps) {
                 </SelectContent>
               </Select>
             </div>
-            <div className="grid w-full items-center gap-1.5">
-              <Label htmlFor="limit">Limit</Label>
-              <Input
-                id="limit"
-                type="number"
-                value={config.limit || 10}
-                onChange={(e) => setConfig({ ...config, limit: Number.parseInt(e.target.value) })}
-              />
-            </div>
           </>
         )
       case "orders-table":
