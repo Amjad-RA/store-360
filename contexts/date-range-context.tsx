@@ -37,7 +37,7 @@ export function DateRangeProvider({ children }: { children: React.ReactNode }) {
     const savedDateRange = localStorage.getItem(STORAGE_KEY)
     if (savedDateRange) {
       try {
-        const parsed = JSON.parse(savedDateRange)
+        const parsed = JSON?.parse(savedDateRange)
         // Convert string dates back to Date objects
         setDateRange({
           from: parsed.from ? new Date(parsed.from) : undefined,

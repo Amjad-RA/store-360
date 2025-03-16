@@ -30,7 +30,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <SidebarProvider>
+        <SidebarProvider defaultOpen={false}>
           <SideBar />
           <DateRangeProvider>
             <main className="flex-1 w-full">{children}</main>
